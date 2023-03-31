@@ -31,7 +31,7 @@
 			<view>原标题：{{title}}</view>
 			<view>修改后：{{changeTitle}}</view>
 		</view>
-		<myitem></myitem>
+		<myitem title="demo4"></myitem>
 	</view>
 </template>
 

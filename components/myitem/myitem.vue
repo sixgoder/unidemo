@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="item">
-			myitem自定义组件
+			传值：{{title}}
 		</view>
 	</view>
 </template>
@@ -9,6 +9,7 @@
 <script>
 	export default {
 		name: "myitem",
+		props: ["title"],
 		data() {
 			return {
 
