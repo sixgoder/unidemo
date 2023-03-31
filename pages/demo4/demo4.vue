@@ -31,7 +31,7 @@
 			<view>原标题：{{title}}</view>
 			<view>修改后：{{changeTitle}}</view>
 		</view>
-		<myitem title="demo4"></myitem>
+		<myitem :title="title" @inputEvent="onInputEvent"></myitem>
 	</view>
 </template>
 
@@ -53,6 +53,9 @@
 			onPickerChange(e) {
 				console.log(e)
 				this.selecteValue = e.detail.value
+			},
+			onInputEvent(e) {
+				console.log(e)
 			}
 		},
 		// 这里的方法按属性使用
