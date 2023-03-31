@@ -27,12 +27,11 @@
 		</form>
 		{{obj}}
 		<view class="row">
-			// 双向绑定
 			<input type="text" v-model="title">
 			<view>原标题：{{title}}</view>
 			<view>修改后：{{changeTitle}}</view>
 		</view>
-	</view>
+		<myitem></myitem>
 	</view>
 </template>
 
