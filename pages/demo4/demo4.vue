@@ -26,6 +26,13 @@
 			</view>
 		</form>
 		{{obj}}
+		<view class="row">
+			// 双向绑定
+			<input type="text" v-model="title">
+			<view>原标题：{{title}}</view>
+			<view>修改后：{{changeTitle}}</view>
+		</view>
+	</view>
 	</view>
 </template>
 
@@ -35,7 +42,8 @@
 			return {
 				obj: null,
 				options: ['高中', '大专', '本科', '硕士', '博士'],
-				selecteValue: 2
+				selecteValue: 2,
+				title: ""
 			};
 		},
 		methods: {
@@ -46,6 +54,13 @@
 			onPickerChange(e) {
 				console.log(e)
 				this.selecteValue = e.detail.value
+			}
+		},
+		// 这里的方法按属性使用
+		// 计算属性基于响应式依赖进行缓存相比methods来说
+		computed: {
+			changeTitle() {
+				return this.title.toLocaleUpperCase()
 			}
 		}
 	}
