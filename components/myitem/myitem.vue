@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="item">
+		<view class="item" :style="{height:state?'300rpx':0}">
 			传值：{{title}}
 		</view>
 		<view class="time">
@@ -9,6 +9,7 @@
 		<view>
 			<input type="text" placeholder="请输入..." @input="onInput">
 		</view>
+		<button size="mini" @click="onClose">关闭</button>
 	</view>
 </template>
 
@@ -24,6 +25,10 @@
 			time: {
 				type: Number,
 				default: Date.now()
+			},
+			state: {
+				type: Boolean,
+				default: false
 			}
 		},
 		data() {
@@ -34,6 +39,9 @@
 		methods: {
 			onInput(e) {
 				this.$emit("inputEvent", e.detail.value)
+			},
+			onClose() {
+				this.$emit("update:state", false)
 			}
 		}
 	}

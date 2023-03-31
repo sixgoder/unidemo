@@ -31,7 +31,8 @@
 			<view>原标题：{{title}}</view>
 			<view>修改后：{{changeTitle}}</view>
 		</view>
-		<myitem :title="title" @inputEvent="onInputEvent"></myitem>
+		<button @click="clickBtn">开启</button>
+		<myitem :title="title" @inputEvent="onInputEvent" :state.sync="mystate"></myitem>
 	</view>
 </template>
 
@@ -42,7 +43,8 @@
 				obj: null,
 				options: ['高中', '大专', '本科', '硕士', '博士'],
 				selecteValue: 2,
-				title: ""
+				title: "",
+				mystate: false
 			};
 		},
 		methods: {
@@ -56,6 +58,9 @@
 			},
 			onInputEvent(e) {
 				console.log(e)
+			},
+			clickBtn() {
+				this.mystate = true
 			}
 		},
 		// 这里的方法按属性使用
